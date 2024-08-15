@@ -59,23 +59,8 @@ Next, in your WordPress admin area, do the following:
 3. Set the "Chapter Logo",
 5. Save the settings by clicking the "Save & Publish" button at the top.
 
-### Add Pages
+### In your site admin, under Appearance -> Menus, manage your menu items as needed
 
-1. Go to *"Pages"* -> *"All Pages"*
-2. On installing and activating the ISOC WordPress Theme some basic pages were already created ('News', 'European news', 'About' & 'Contact' ). If they're not available or if you'd like to add some additional pages, click on the "Add New" button on top of the page.
-3. Add text in the WYSIWYG field "Main Content".
-
-### Add a Menu (or Customize the Main Menu)
-
-1. Go to *"Appearance"* -> *"Customize"* -> *"Menus"*
-2. If you do not already have the "Main Menu", you need to click the "+ Add a Menu" button to create a menu with this exact name 'Main Menu',
-3. Set the "Display Location" for this menu to "Primary Navigation",
-3. You'll want to add at least one item to this menu (and max of 4 items!). If you have not yet created many pages, the simplest option may be to add for example the Homepage:
- * In the *"Pages"* box on the left check the box next to "Home". Note that you may need to click "View All" to see the Homepage.
- * Click "Add to Menu". "Home" will now appear on the menu.
- * Press the "Save Menu" button.
-
- Alternatively you can add Categories to the menu using the Categories box further down the page.
 
 ### Adding Items to Left Sidebar on the Homepage
 
