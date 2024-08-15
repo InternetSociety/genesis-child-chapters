@@ -40,22 +40,3 @@ Next, in your WordPress admin area, do the following:
 ### Manage your navigation menus.
 1. In your site admin, under Appearance -> Menus,
 2. manage your main navigation in the header and footer menu items as needed
-
-
-### Adding Items to Left Sidebar on the Homepage
-
-1. Go to *"Appearance"* -> *"Widgets"*
-2. Find the "Sidebar Home" Area.
-3. Drag and drop Text or other widget types and make appropriate changes.
-
-### Adding Items to Left Sidebar on Other (Internal) Pages
-
-1. Go to *"Appearance"* -> *"Widgets"*
-2. Find the "Sidebar" Area.
-3. Drag and drop Text or other widget types and make appropriate changes.
-
-### Assigning the 404 Page
-
-1.  From the left-hand column, go to *"Appearance"* -> *"Customize"* and click on "ISOC Defaults"
-2.  Select a page to show as your 404 (not found) page,
-3.  Press the "Save & Publish" button.
