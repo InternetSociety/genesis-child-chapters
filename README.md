@@ -19,23 +19,16 @@ Outline
 ------------------------------
 
 This ReadMe document covers the following:
-> 1. [Required plugins](#01-requiredplugins)
-> 2. [Installation](#02-installation)
-> 3. [Customizing the theme ](#03-custom)
-> 4. [Support / Questions](#07-support)
-> 5. [Contributors and Contributing Changes](#08-contribute)
+> 1. [Installation](#0§-installation)
+> 2. [Customizing the theme ](#02-custom)
+> 3. [Support / Questions](#04-support)
+> 4. [Contributors and Contributing Changes](#04-contribute)
 
 ------------------------------------------------------------------------
 
-<a name="01-requiredplugins"></a>
-## Required plugins ##
-------------------------------
-
-This is a theme-only resource. No plugins are required.
-
 ------------------------------------------------------------------------
 
-<a name="02-installation"></a>
+<a name="01-installation"></a>
 ## Installation ##
 ------------------------------
 
@@ -50,7 +43,7 @@ Next, in your WordPress admin area, do the following:
 
 ------------------------------------------------------------------------
 
-<a name="03-custom"></a>
+<a name="02-custom"></a>
 ### Customize the Theme with a Site Title, Tagline and Chapter Logo
 
 1. Go to *"Appearance"* -> *"Customize"* -> *"Site Identity"*
