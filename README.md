@@ -21,7 +21,7 @@ Outline
 This ReadMe document covers the following:
 > 1. [Installation](#0§-installation)
 > 2. [Customizing the theme ](#02-custom)
-> 3. [Support / Questions](#04-support)
+> 3. [Support / Questions](#03-support)
 > 4. [Contributors and Contributing Changes](#04-contribute)
 
 ------------------------------------------------------------------------
