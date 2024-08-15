@@ -1,0 +1,64 @@
+a,
+button {
+  outline: 0 !important;
+}
+
+#wpadminbar {
+  top: 0;
+}
+
+.admin-bar .site-header {
+  top: 0;
+}
+
+
+/* customization on technical guide */
+body {
+
+  /* hide sr only in safari */
+  .sr-only {
+      width: 1px; 
+      height: 1px; 
+      margin-left:-6000px;
+      position:absolute
+    }
+}
+
+/* customization on technical guide */
+body.page-id-545 {
+
+  .anchor {scroll-margin-top: 70px;}
+
+  .entry-content ul.wp-block-navigation>li { 
+    border-bottom:1px solid white; 
+    padding:5px;
+    list-style-type: none !important
+  }
+
+    .entry-content ul.wp-block-navigation li a { 
+    display:block
+  }
+
+  .entry-content ul.wp-block-navigation  { 
+    position:fixed !important;
+    top:130px;
+    z-index:1;
+    padding-left:10px
+  }
+
+  
+}
+
+.tribe-events-single a {
+  color: $isoc-blue;
+}
+
+
+/* customize search results */
+
+.search-content .entry { 
+  margin-bottom: unset; 
+  background-color:#eef2ec; 
+  margin-bottom:20px; 
+  padding:10px
+}

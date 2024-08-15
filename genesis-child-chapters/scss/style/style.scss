@@ -1,0 +1,66 @@
+/*!
+Theme Name: Internet Chapters
+Theme URI: https://demo.studiopress.com/
+Description: This is the sample theme created for the Genesis Framework.
+Author: StudioPress
+Author URI: https://www.studiopress.com/
+
+Version: 3.4.1
+
+Tags: accessibility-ready, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, two-columns, wide-blocks
+
+Template: genesis
+
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Text Domain: genesis-child-chapters
+Requires at least: 5.4
+Requires PHP: 5.6
+*/
+@import url("https://use.typekit.net/fmn0sjw.css");
+
+/*
+<link rel="stylesheet" href="https://use.typekit.net/fmn0sjw.css">
+Hind Regular
+
+font-family: hind, sans-serif;
+font-weight: 400;
+font-style: normal;
+
+
+Hind Medium
+
+font-family: hind, sans-serif;
+font-weight: 500;
+font-style: normal;
+
+
+Hind SemiBold
+
+font-family: hind, sans-serif;
+font-weight: 600;
+font-style: normal;
+
+
+Hind Bold
+
+font-family: hind, sans-serif;
+font-weight: 700;
+font-style: normal;
+
+*/
+@import '../variables';
+@import 'normalize';
+@import 'common';
+@import 'header';
+@import 'menu';
+@import 'footer';
+@import 'home';
+@import 'pages';
+@import 'categories';
+@import 'posts';
+@import 'slick';
+@import 'sliders';
+@import 'override';
+

@@ -1,0 +1,70 @@
+// colors
+$white: #fff;
+$black: #000;
+
+
+
+
+$link: #2B72D6;
+$accent: #40B2A4;
+$ground-navy: #0c1c2c;
+$neutral-white: #eff2ec;
+$neutral-putty: #DEDAD0;
+$depth-green: #085856;
+$depth-blue: #24366E;
+$accent-purple: #7E245C;
+$depth-teal: #143E50;
+$accent-orange: #D25238;
+$accent-yellow: #EECA4A;
+$neutral-green: #D0E6DA;
+
+
+
+
+
+
+$blue-bg: #27376A;
+$dark-blue-titles: #24366E;
+$isoc-blue: #1D69D3;
+$dark-blue: #0C1C2C;
+$light-blue: #3A82E4;
+$blue-titles: #2B72D6;
+$button-bg: #24366E;
+$teal-blue: #40B2A4;
+$button-radius: 24px;
+
+$white-trans: rgba(255, 255, 255, 0.45);
+$black-trans: rgba(0, 0, 0, 0.96);
+$light-gray: #f1f1f1;
+$dark-gray: #a9a9a9;
+$button-hover: #727272;
+$button-gray: #e3e3e3;
+$box-shadow: 0 3px 69px rgba(0, 0, 0, 0.29);
+$news-shadow: 0 0 22px 0px rgba(201,205,208,0.6);
+$news-shadow-hover: 0 0 22px 0px rgba(201,205,208,1);
+$blue-box: #0078b4;
+
+// sizes
+$fixed-body: 1280px;
+$fixed-1180: 1180px;
+$fixed-1080: 1080px;
+$fixed-96: 960px;
+$fixed-9: 900px;
+$fixed-8: 800px;
+$fixed-7: 700px;
+$fixed-6: 600px;
+$fixed-5: 500px;
+$fixed-4: 400px;
+$max-fixed: 90%;
+
+// animations
+$transition: all 0.3s ease;
+
+// slick
+$slick-arrow-color: white !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
