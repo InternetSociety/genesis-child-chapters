@@ -59,7 +59,9 @@ Next, in your WordPress admin area, do the following:
 3. Set the "Chapter Logo",
 5. Save the settings by clicking the "Save & Publish" button at the top.
 
-### In your site admin, under Appearance -> Menus, manage your menu items as needed
+### Manage your navigation menus.
+1. In your site admin, under Appearance -> Menus,
+2. manage your main navigation in the header and footer menu items as needed
 
 
 ### Adding Items to Left Sidebar on the Homepage
