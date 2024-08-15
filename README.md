@@ -21,12 +21,9 @@ Outline
 This ReadMe document covers the following:
 > 1. [Required plugins](#01-requiredplugins)
 > 2. [Installation](#02-installation)
-> 3. [Initial Configuration](#03-initialconfig)
-> 4. [Configuration](#04-config)
-> 5. [Using the Events Manager Plugin](#05-eventsmanagerplugin)
-> 6. [Using a Child Theme For Customization](#06-childtheme)
-> 7. [Support / Questions](#07-support)
-> 8. [Contributors and Contributing Changes](#08-contribute)
+> 3. [Customizing the theme ](#03-custom)
+> 4. [Support / Questions](#07-support)
+> 5. [Contributors and Contributing Changes](#08-contribute)
 
 ------------------------------------------------------------------------
 
@@ -42,42 +39,18 @@ This is a theme-only resource. No plugins are required.
 ## Installation ##
 ------------------------------
 
-The initial installation of the theme involves the following steps:
+Download the ZIP file of this repository:
+<https://github.com/InternetSociety/wp-chapter-theme/archive/refs/heads/main.zip>
 
-> **IMPORTANT** - The theme unzips into a directory called 'isoc'. If you already have a theme using that same directory name, bad things will happen. The safest plan would be to remove the previous theme using that directory name.
-
-To begin, you need to download a ZIP (or tar.gz) file for the latest version of the theme from this URL from the "Releases" page:
-
-> <https://github.com/InternetSociety/wp-chapter-theme/releases>
-
-
-> **IMPORTANT** - In order for some of the sample code to work in this documentation, you should click on "Theme download (zip)" in order to download a version of the theme that unzips into a folder called simply "isoc". If you choose the other buttons marked "Source code" it will unzip into a folder called "isoc-_version_". This will work with WordPress, but some of the examples here will need to be modified. It's easier if you just have the folder/directory named "isoc".
-
-Next, in your WordPress admin area (or Network Admin if you are using WordPress MultiSite) do the following:
+Next, in your WordPress admin area, do the following:
 
 1. Go to *"Appearance* -> *"Themes"*, choose "Add New" and then choose the "Upload Theme" button,
 2. Upload the ZIP file you downloaded,
-3. Activate the theme for your site.
-
-Next you will want to go through the steps in the next sections on configuration to make any changes, update the homepage, etc.
+3. Activate the theme Internet Chapters
 
 ------------------------------------------------------------------------
 
-<a name="03-initialconfig"></a>
-## Initial Configuration ##
-------------------------------
-
-Before you start using the theme, you need to perform these steps.
-
-On activating the theme some configuration of the site is slightly automated.
-For instance: if there are no pages already, the following are created:
-"News", "Events", "European news", "About", "Contact", and the 404 page: "Not found".
-Also the "Recent posts" widget is added to the "Sidebar". The "Main Menu" is created.
-
-Nonetheless, it wouldn't hurt to follow these steps below, in order to learn where and how certain parts of the website can be created or altered.
-
-All of the steps assume you are logged into WordPress, have access to the administration panels of your site and have the required plugins installed. A notice is shown at the top of each admin page if the required plugins are not installed.
-
+<a name="03-custom"></a>
 ### Customize the Theme with a Site Title, Tagline and Chapter Logo
 
 1. Go to *"Appearance"* -> *"Customize"* -> *"Site Identity"*
