@@ -1,8 +1,2 @@
-# ignore everything in the root except the "wp-content" directory.
-!genesis-child-chapters/
-!genesis
-
-
-# ignore specific themes
-twenty*/
-genesis-child-chapters/node_modules
+# ignores pieces
+node_modules
