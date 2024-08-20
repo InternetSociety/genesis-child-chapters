@@ -14,6 +14,7 @@
  */
 
 return [
+    /* not used by Henri
 	'plugins'          => [
 		[
 			'name'       => __( 'Genesis Blocks', 'genesis-child-chapters' ),
@@ -21,6 +22,7 @@ return [
 			'public_url' => 'https://wordpress.org/plugins/genesis-blocks/',
 		],
 	],
+    */
 	'content'          => [
 		'about'   => [
 			'post_title'     => 'About Us',
@@ -74,22 +76,9 @@ return [
                 '_genesis_hide_singular_image' => true,
             ],
         ],
-        'gallery'   => [
-            'post_title'     => 'Gallery',
-            'post_content'   => require dirname( __FILE__ ) . '/import/content/gallery.php',
-            'post_type'      => 'page',
-            'post_status'    => 'publish',
-            'comment_status' => 'closed',
-            'ping_status'    => 'closed',
-            'meta_input'     => [
-                '_genesis_layout'              => 'full-width-content',
-                '_genesis_hide_title' => true,
-                '_genesis_hide_singular_image' => true,
-            ],
-        ],
-        'get-involved'   => [
-            'post_title'     => 'Get Involved',
-            'post_content'   => require dirname( __FILE__ ) . '/import/content/get-involved.php',
+        'blog'   => [
+            'post_title'     => 'News',
+            'post_content'   => require dirname( __FILE__ ) . '/import/content/blog.php',
             'post_type'      => 'page',
             'post_status'    => 'publish',
             'comment_status' => 'closed',
@@ -127,22 +116,9 @@ return [
             ],
 
         ],
-            'terms-of-use'   => [
-                'post_title'     => 'Terms of Use',
-                'post_content'   => require dirname( __FILE__ ) . '/import/content/terms.php',
-                'post_type'      => 'page',
-                'post_status'    => 'publish',
-                'comment_status' => 'closed',
-                'ping_status'    => 'closed',
-                'meta_input'     => [
-                    '_genesis_layout'              => 'full-width-content',
-                    '_genesis_hide_title' => true,
-                    '_genesis_hide_singular_image' => true,
-                ],
-            ],
-        'privacy-policy'   => [
-            'post_title'     => 'Privacy Policy',
-            'post_content'   => require dirname( __FILE__ ) . '/import/content/privacy.php',
+        'search'   => [
+            'post_title'     => 'Search',
+            'post_content'   => require dirname( __FILE__ ) . '/import/content/search.php',
             'post_type'      => 'page',
             'post_status'    => 'publish',
             'comment_status' => 'closed',
@@ -152,8 +128,9 @@ return [
                 '_genesis_hide_title' => true,
                 '_genesis_hide_singular_image' => true,
             ],
-        ],
+        ]
 	],
+     /* not used by Henri
 	'navigation_menus' => [
 		'primary' => [
 			'home' => [
@@ -173,6 +150,7 @@ return [
 			],
 		],
 	],
+    */
 	'widgets'          => [
 		'footer-1' => [
 			[
