@@ -1,4 +1,6 @@
 .footer-widgets {
+  .widget ul>li { padding: 10px;  };
+  .widget ul.aligncenter { display:flex;margin-left: auto; margin-right: auto; width: 300px; };
   padding: 25px 0 25px;
   .wrap {
     max-width: $max-fixed;
