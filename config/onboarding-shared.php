@@ -161,30 +161,30 @@ return [
                     <ul class="aligncenter">
                         <li class="ssi-facebook">
                             <a href="https://www.facebook.com/InternetSociety" target="_blank" rel="noopener noreferrer">
-                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters/config/import/images/social/white/facebook.svg">
+                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters-main/config/import/images/social/white/facebook.svg">
                             </a>
                         </li>
                         <li class="ssi-instagram">
                             <a href="https://www.instagram.com/internetsociety/" target="_blank" rel="noopener noreferrer">
-                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters/config/import/images/social/white/instagram.svg">
+                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters-main/config/import/images/social/white/instagram.svg">
                             </a>
                         </li>
                         <li class="ssi-linkedin">
                             <a href="https://www.linkedin.com/company/internet-society/" target="_blank" rel="noopener noreferrer">
-                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters/config/import/images/social/white/linkedin.svg">
+                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters-main/config/import/images/social/white/linkedin.svg">
                             </a>
                             </li>
                         <li class="ssi-rss">
                             <a href="https://www.internetsociety.org/feed/" target="_blank" rel="noopener noreferrer">
-                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters/config/import/images/social/white/rss.svg">
+                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters-main/config/import/images/social/white/rss.svg">
                             </a>
                         </li>
                         <li class="ssi-twitter">
                             <a href="https://twitter.com/internetsociety" target="_blank" rel="noopener noreferrer">
-                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters/config/import/images/social/white/X.svg"></a>
+                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters-main/config/import/images/social/white/X.svg"></a>
                         </li>
                         <li class="ssi-youtube"><a href="https://www.youtube.com/user/InternetSocietyVideo" target="_blank" rel="noopener noreferrer">
-                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters/config/import/images/social/white/youtube.svg"></a>
+                            <img width="30" height="30" src="/wp-content/themes/genesis-child-chapters-main/config/import/images/social/white/youtube.svg"></a>
                         </li>
                     </ul>
                     </section>',
