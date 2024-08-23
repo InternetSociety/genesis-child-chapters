@@ -97,18 +97,9 @@ function genesis_child_chapters_enqueue_scripts_styles() {
 	wp_register_script('art_gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js');
 	wp_enqueue_script(array('jquery','art_gsap'));
 
-//	wp_register_script('art_gsap_text', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js');
-//	wp_enqueue_script(array('jquery','art_gsap_text'));
-
-
-//	wp_register_script('art_cssrule', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js');
-//	wp_enqueue_script(array('jquery','art_cssrule'));
 
 	wp_register_script('art_gsap_st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js');
 	wp_enqueue_script(array('jquery','art_gsap_st'));
-
-//	wp_register_script('art_ease', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/EasePack.min.js');
-//	wp_enqueue_script(array('jquery','art_ease'));
 
 
 	wp_register_script('anim-init', get_stylesheet_directory_uri() . '/js-build/anim-init.min.js', array('jquery'), filemtime(get_theme_file_path('/js-build/anim-init.min.js')), true);
@@ -244,8 +235,6 @@ if ( function_exists( 'add_theme_support' ) ) {
     set_post_thumbnail_size(894, 524, true);
 }
 
-// Removes header right widget area.
-//unregister_sidebar( 'header-right' );
 
 // Removes secondary sidebar.
 unregister_sidebar( 'sidebar-alt' );
@@ -373,15 +362,7 @@ function art_set_image_meta_upon_image_upload( $post_ID ) {
     }
 }
 add_action( 'add_attachment', 'art_set_image_meta_upon_image_upload' );
-/*
-function genesis_child_chapters_swap_title_image() {
-    if ( is_archive() || is_home() ) {
-        remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
-        add_action( 'genesis_entry_header', 'genesis_do_post_image', 8 );
-    }
-}
-add_action( 'genesis_before_content', 'genesis_child_chapters_swap_title_image' );
-*/
+
 
 //Force the Read More  - Set conditionally based on Category slug
 add_filter( 'the_excerpt', 'genesis_child_chapters_excerpt_read_more_link' );
@@ -394,19 +375,6 @@ function genesis_child_chapters_excerpt_read_more_link( $output ) {
 
 
 
-
-/*
-add_filter( 'genesis_pre_get_image', 'default_featured_image_when_not_set', 10, 1 );
-
-function default_featured_image_when_not_set( $post ) {
-
-    if ( '' != get_the_post_thumbnail() ) :
-        return $post;
-    else:
-        echo '<a class="entry-image-link entry-default" href="'. get_permalink() .'" aria-hidden="true" tabindex="-1"> <img alt="Internet Hall Of Fame Featured" src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/IHF-Featured.jpg" class="centered aligncenter featured-img" /></a>';
-    endif;
-}
-*/
 
 /** Before Header */
 add_action( 'genesis_before_header', 'genesis_child_chapters_before_header_widget', 'genesis-child-chapters' );
@@ -590,33 +558,6 @@ function my_get_events_title($title) {
 
 
 
-
-
-
-
-/*
-
-remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
-add_action( 'genesis_entry_header', 'genesis_do_post_image', 12 );
-
-remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
-add_action( 'genesis_entry_content', 'genesis_do_post_title', 1 );
-
-remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-add_action( 'genesis_entry_content', 'genesis_post_info', 0 );
-
-
-
-
-remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
-add_action( 'genesis_before_entry_content', 'genesis_do_post_image', 8 );
-
-remove_action( 'genesis_entry_header', 'genesis_do_post_format_image', 12 );
-
-remove_action( 'genesis_entry_header', 'genesis_do_post_image', 12 );
-remove_action( 'genesis_entry_content', 'genesis_do_post_image', 12 );
-
-*/
 
 /*
  * Shortcode, moved form Art_Custom
@@ -865,52 +806,6 @@ add_shortcode('file-url', 'art_theme_url_shortcode' );
 
 
 /*
-function art_rel_shortcode($atts){
-    extract( shortcode_atts( array(
-        'class' => '3'),
-        $atts ) );
-
-    $orig_post = $post;
-    global $post;
-    $tags = wp_get_post_tags($post->ID);
-
-    if ($tags) {
-    $tag_ids = array();
-    foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
-    $args=array(
-    'tag__in' => $tag_ids,
-    'post__not_in' => array($post->ID),
-    'posts_per_page'=>4, // Number of related posts to display.
-    'caller_get_posts'=>1
-    );
-
-    $my_query = new wp_query( $args );
-
-    while( $my_query->have_posts() ) {
-    $my_query->the_post();
-    ?>
-
-    <div class="relatedthumb">
-        <a rel="nofollow" target="_blank" href="<? the_permalink()?>">
-            <?php the_post_thumbnail(array(150,100)); ?>
-        </a>
-        <a rel="nofollow" target="_blank" href="<? the_permalink()?>">
-        <?php the_title(); ?>
-        </a>
-    </div>
-
-    <? }
-    }
-    $post = $orig_post;
-    wp_reset_query();
-
-
-}
-add_shortcode('related-posts', 'av_rel_shortcode');
-*/
-
-
-/*
 Excerpt update
 */
 
@@ -922,3 +817,13 @@ add_filter( 'excerpt_more', 'art_excerpt_more' );
 function art_excerpt_more( $excerpt_more ) {
     return '...';
 }
+
+
+
+
+//allow upload of svg
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
