@@ -219,5 +219,32 @@ return [
                 ],
             ],
         ],
+
+        'header-right' => [
+            [
+                'type' => 'text',
+                'args' => [
+                    'title'  => '',
+                    'text'   => '<div class="sec-nav">
+<a href="javascript:void(0);" role="button" class="seach-toggle">
+<span class="sr-only">Search Dropdown</span>
+    <img class="search-ico" width="21" height="21" src="https://chapter-template.internetsociety.org/wp-content/themes/genesis-child-chapters/images/search-icon-21px-21px.svg" alt="Search Icon">
+</a>
+    
+<a href="https://community.internetsociety.org/s/new-registration" class="join customize-unpreviewable">Join</a>
+</div>
+
+<div class="search-block" style="display: none">
+<form data-min-no-for-search="1" data-result-box-max-height="400" data-form-id="540" class="is-search-form is-disable-submit is-form-style is-form-style-3 is-form-id-540 is-ajax-search" action="https://chapter-template.isoc.org/" method="get" role="search" target="_self"><input type="hidden" name="customize_messenger_channel" value="preview-0"><input type="hidden" name="customize_autosaved" value="on"><input type="hidden" name="customize_changeset_uuid" value="dc0b2f39-1120-4274-b43b-4322e61b0ce2"><label for="is-search-input-540"><input type="search" id="is-search-input-540" name="s" value="" class="is-search-input" placeholder="Search by Keyword" autocomplete="off"><span class="is-loader-image" style="display: none;background-image:url(https://chapter-template.internetsociety.org/wp-content/plugins/add-search-to-menu/public/images/spinner.gif);"></span></label>
+    
+
+<input type="hidden" name="id" value="540"></form>
+</div>',
+                    'filter' => 1,
+                    'visual' => 1,
+                ],
+            ],
+        ],
+
 	],
 ];
