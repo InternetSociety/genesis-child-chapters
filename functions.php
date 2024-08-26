@@ -10,6 +10,10 @@
  * @link    https://www.studiopress.com/
  */
 
+
+
+
+
 // Starts the engine.
 require_once get_template_directory() . '/lib/init.php';
 
@@ -827,3 +831,16 @@ function cc_mime_types($mimes) {
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
+
+
+
+// add title toggle feature as per https://wordpress.org/plugins/genesis-title-toggle/
+require_once  __DIR__ .'/genesis-title-toggle.php';
+
+
+
+
+
+
+
+
