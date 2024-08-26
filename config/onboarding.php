@@ -10,6 +10,8 @@
  * @link    https://www.studiopress.com/
  */
 
+/* disabled by Henri as we don't need to create a home page
+
 $genesis_child_chapters_shared_content = genesis_get_config( 'onboarding-shared' );
 
 return [
@@ -48,3 +50,5 @@ return [
 		],
 	],
 ];
+
+*/

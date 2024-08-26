@@ -22,7 +22,7 @@ return [
 			'public_url' => 'https://wordpress.org/plugins/genesis-blocks/',
 		],
 	],
-    */
+   
 	'content'          => [
 		'about'   => [
 			'post_title'     => 'About Us',
@@ -130,6 +130,8 @@ return [
             ],
         ]
 	],
+
+     */
      /* not used by Henri
 	'navigation_menus' => [
 		'primary' => [
