@@ -10,7 +10,7 @@
  * @link    https://www.studiopress.com/
  */
 
-/* disabled by Henri as we don't need to create a home page
+
 
 $genesis_child_chapters_shared_content = genesis_get_config( 'onboarding-shared' );
 
@@ -25,9 +25,10 @@ return [
 				'dependencies'     => [
 					'plugins' => $genesis_child_chapters_shared_content['plugins'],
 				],
+				
 				'content'          => array_merge(
 					[
-						'homepage' => [
+						'homepage-2' => [
 							'post_title'     => 'Demo Home',
 							'post_content'   => require dirname( __FILE__ ) . '/import/content/home-color.php',
 							'post_type'      => 'page',
@@ -44,6 +45,7 @@ return [
 					],
 					$genesis_child_chapters_shared_content['content']
 				),
+				
 				'navigation_menus' => $genesis_child_chapters_shared_content['navigation_menus'],
 				'widgets'          => $genesis_child_chapters_shared_content['widgets'],
 			],
@@ -51,4 +53,4 @@ return [
 	],
 ];
 
-*/
+
