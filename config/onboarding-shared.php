@@ -22,6 +22,7 @@ return [
             'post_status'    => 'publish',
             'comment_status' => 'closed',
             'ping_status'    => 'closed',
+            'page_template'  => 'search.php',
             'meta_input'     => [
                 '_genesis_layout'              => 'full-width-content',
                 '_genesis_hide_title' => true,
