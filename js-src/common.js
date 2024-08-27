@@ -72,7 +72,7 @@ jQuery('.opacity-over-img > .wp-block-group__inner-container').css('background-i
     }, 500, 'linear');
   });
 
-  jQuery( ".seach-toggle" ).click(function() {
+  jQuery( ".search-toggle" ).click(function() {
     jQuery( ".search-block" ).slideToggle( 500 );
     jQuery( ".language-dropdown" ).hide();
   });
