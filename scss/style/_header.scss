@@ -155,7 +155,9 @@
         }
       a.search-toggle {
         width: 21px;
-        cursor: pointer;
+      }
+      a.search-toggle:hover {
+        cursor:pointer
       }
 
       a.language-toggle {
