@@ -130,7 +130,11 @@ return [
                 'args' => [
                     'title'  => '',
                     'text'   => '<div class="sec-nav">
-<a href="javascript:void(0);" role="button" class="search-toggle"><span class="sr-only">Search Dropdown</span><img class="search-ico" width="21" height="21" src="https://chapter-template.internetsociety.org/wp-content/themes/genesis-child-chapters/images/search-icon-21px-21px.svg" alt="Search Icon"></a>
+<a href="javascript:void(0);" role="button" class="search-toggle">
+<span class="sr-only">Search Dropdown</span>
+    <img class="search-ico" width="21" height="21" src="https://chapter-template.internetsociety.org/wp-content/themes/genesis-child-chapters/images/search-icon-21px-21px.svg" alt="Search Icon">
+</a>
+    
 <a href="https://community.internetsociety.org/s/new-registration" class="join customize-unpreviewable">Join</a>
 </div>
 
