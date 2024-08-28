@@ -19,8 +19,20 @@ add_action( 'genesis_before_loop', 'genesis_do_search_title' );
  */
 function genesis_do_search_title() {
 
-    $title = sprintf( '<div class="wp-block-group inner-fixed page-section">
-    <div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><div class="archive-description"><h1 class="archive-title">%s %s</h1></div></div></div>', apply_filters( 'genesis_search_title_text', __( 'Search Results for:', 'genesis' ) ), get_search_query() );
+    $title = sprintf( '
+<div class="wp-block-group inner-page-header">
+    <div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+        <div class="wp-block-cover is-light white-overlay" style="min-height:200px;aspect-ratio:unset;">
+            <span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span>
+            <img decoding="async" class="wp-block-cover__image-background wp-image-359" alt="Green Pattern Header" src="/wp-content/themes/genesis-child-chapters-main/config/import/images/about/Green-pattern-header.jpg" data-object-fit="cover" style="transform: translate3d(0px, 0px, 0px) scale(1.1984, 1.19842);">
+        <div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
+            <h1 class="wp-block-heading">%s %s</h1>
+        </div>
+        </div>
+    </div>
+</div>
+
+    ', apply_filters( 'genesis_search_title_text', __( 'Search Results for:', 'genesis' ) ), get_search_query() );
 
     echo apply_filters( 'genesis_search_title_output', $title ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
@@ -100,11 +112,11 @@ function sk_do_search_loop() {
 }
 
 function sk_content_limit() {
-    return '150'; // number of characters.
+    return '300'; // number of characters.
 }
 
 function sp_read_more_link() {
-    return '... <a class="more-link" href="' . get_permalink() . '">Continue Reading</a>';
+   // return '... <a class="more-link" href="' . get_permalink() . '">Continue Reading</a>';
 }
 
 function sk_show_excerpts() {

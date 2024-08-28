@@ -2,7 +2,7 @@
 /**
  * Internet Chapters.
  *
- * About page content optionally installed after theme activation.
+ * Search page content optionally installed after theme activation.
  *
  * Visit `/wp-admin/admin.php?page=genesis-getting-started` to trigger import.
  *
