@@ -844,3 +844,81 @@ require_once  __DIR__ .'/genesis-title-toggle.php';
 
 
 
+
+/**
+REPLACE THE DEFAULT GENESIS SEARCH WIDGET
+ * You can find the source function for the genesis search form
+ * within the Genesis theme under > /lib/strucutre/search.php
+ *
+ * This updated search from has replaced the <input type="button">
+ * with a <button> element. This makes it easier to add an icon
+ * in replacement of the text with the approtraite attribute roles
+ * that doesn't cause an html validation error.
+ *
+ * This version of the search from assumes you have declared supprot for html
+ * and acessability supprot.
+ * This update removes the filters for the button, label and search text
+ * as they are redundent.
+ * Source: https://gist.github.com/patric-boehner/07e7fcf956029268a7dff273a19a219c
+ */
+
+/*
+THIS CODE NEEDS TO BE OUTPUT WITH THE FILTER get_search_form
+<div class="sec-nav">
+    <a class="search-toggle" role="button">
+        <span class="sr-only">Search Dropdown</span><img class="search-ico" src="/wp-content/themes/genesis-child-chapters-main/images/search-icon-21px-21px.svg" alt="Search Icon" width="21" height="21" /></a>
+        <a class="join customize-unpreviewable" href="https://community.internetsociety.org/s/new-registration">Join</a>
+</div>
+<div class="search-block" style="display: none;">
+    <form class="is-search-form" role="search" action="/" method="get" target="_self">
+    <label for="is-search-input-540">
+        <input id="is-search-input-540" class="is-search-input" autocomplete="off" name="s" type="search" value="" placeholder="Search by Keyword" />
+    </label>
+    </form>
+</div>
+
+*/
+
+
+
+add_filter( 'get_search_form', 'pb_custom_search_form', 10, 4 );
+function pb_custom_search_form() {
+
+    $onfocus = "if ('" . esc_js( $search_text ) . "' === this.value) {this.value = '';}";
+    $onblur  = "if ('' === this.value) {this.value = '" . esc_js( $search_text ) . "';}";
+
+    $value_or_placeholder = ( get_search_query() == '' ) ? 'placeholder' : 'value';
+
+
+$form  = '
+<style type="text/css">.widgettitle.widget-title {display:none} </style>
+<div class="sec-nav">
+    <a class="search-toggle" role="button">
+        <span class="sr-only">Search Dropdown</span><img class="search-ico" src="/wp-content/themes/genesis-child-chapters-main/images/search-icon-21px-21px.svg" alt="Search Icon" width="21" height="21" /></a>
+        <a class="join customize-unpreviewable" href="https://community.internetsociety.org/s/new-registration">Join</a>
+</div>
+<div class="search-block" style="display: none;">';
+
+    $form  .= sprintf( '<form class="is-search-form" %s>', genesis_attr( 'search-form' ) );
+
+    $form_id = uniqid( 'searchform-', true );
+
+    $form .= sprintf(
+        '<meta itemprop="target" content="%s"/>
+            <label class="search-form-label screen-reader-text" for="%s">%s</label>
+            <input itemprop="query-input" type="search" name="s" id="%s" %s="%s" class="is-search-input" />
+        </form>',
+        home_url( '/?s={s}' ),
+        esc_attr( $form_id ),
+        esc_html( 'Search this website', 'genesis' ),
+        esc_attr( $form_id ),
+        $value_or_placeholder,
+        esc_attr( $_GET['s'] ?: 'Search by Keyword', 'genesis' ),
+        esc_attr( 'Search', 'genesis' )
+    );
+    $form .= '</div>';
+
+    return apply_filters( 'genesis_search_form', $form );
+
+}
+

@@ -74,14 +74,14 @@ function sk_do_search_loop() {
                 // remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 
                 // remove post content nav.
-                remove_action( 'genesis_entry_content', 'genesis_do_post_content_nav', 12 );
-                remove_action( 'genesis_entry_content', 'genesis_do_post_permalink', 14 );
+               //  remove_action( 'genesis_entry_content', 'genesis_do_post_content_nav', 12 );
+                // remove_action( 'genesis_entry_content', 'genesis_do_post_permalink', 14 );
 
                 // force content limit.
                 add_filter( 'genesis_pre_get_option_content_archive_limit', 'sk_content_limit' );
 
                 // modify the Content Limit read more link.
-                add_filter( 'get_the_content_more_link', 'sp_read_more_link' );
+                // add_filter( 'get_the_content_more_link', 'sp_read_more_link' );
 
                 // force excerpts.
                 // add_filter( 'genesis_pre_get_option_content_archive', 'sk_show_excerpts' );
