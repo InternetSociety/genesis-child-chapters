@@ -122,12 +122,12 @@ return [
             ],
         ],
 
+
         'header-right' => [
             [
-                'type' => 'text',
+                'type' => 'search',
                 'args' => [
-                    'title'  => '',
-                    'text'   => '<div class="sec-nav"><a class="search-toggle" role="button"><span class="sr-only">Search Dropdown</span><img class="search-ico" src="/wp-content/themes/genesis-child-chapters-main/images/search-icon-21px-21px.svg" alt="Search Icon" width="21" height="21" /></a><a class="join customize-unpreviewable" href="https://community.internetsociety.org/s/new-registration">Join</a></div><div class="search-block" style="display: none;"><form class="is-search-form" role="search" action="/" method="get" target="_self"><label for="is-search-input-540"><input id="is-search-input-540" class="is-search-input" autocomplete="off" name="s" type="search" value="" placeholder="Search by Keyword" /></label></form></div>',
+                    'title'  => 'Search',
                     'filter' => 1,
                     'visual' => 1,
                 ],
