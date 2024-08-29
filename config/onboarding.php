@@ -29,8 +29,8 @@ return [
 				'content'          => array_merge(
 					[
 						'homepage-2' => [
-							'post_title'     => 'Demo Home',
-							'post_content'   => require dirname( __FILE__ ) . '/import/content/home-color.php',
+							'post_title'     => 'WordPress theme for Internet Society Chapters',
+							'post_content'   => require dirname( __FILE__ ) . '/import/content/home.php',
 							'post_type'      => 'page',
 							'post_status'    => 'publish',
 							'comment_status' => 'closed',

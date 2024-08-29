@@ -2,7 +2,7 @@
 /**
  * Internet Chapters.
  *
- * Homepage content optionally installed after theme activation.
+ * Theme installation content optionally installed after theme activation.
  *
  * @package Internet Chapters
  * @author  StudioPress

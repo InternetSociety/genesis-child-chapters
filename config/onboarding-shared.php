@@ -28,7 +28,22 @@ return [
                 '_genesis_hide_title' => true,
                 '_genesis_hide_singular_image' => true,
             ],
-        ]
+        ],
+        'installation'   => [
+            'post_title'     => 'installation',
+            'post_content'   => require dirname( __FILE__ ) . '/import/content/installation.php',
+            'post_type'      => 'page',
+            'post_status'    => 'publish',
+            'comment_status' => 'closed',
+            'ping_status'    => 'closed',
+            'meta_input'     => [
+                '_genesis_layout'              => 'full-width-content',
+                '_genesis_hide_title' => true,
+                '_genesis_hide_singular_image' => true,
+            ],
+        ],
+
+
     ],
 
     
