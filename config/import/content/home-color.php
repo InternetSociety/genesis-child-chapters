@@ -27,11 +27,11 @@ return <<<CONTENT
 
 <!-- wp:group {"className":"inner-fixed page-section padding-bottom-60"} -->
 <div class="wp-block-group inner-fixed page-section padding-bottom-60"><!-- wp:paragraph -->
-<p>Repository for installing the Wordpress theme for Internet Society Chapters <a href="https://github.com/InternetSociety/wp-chapter-theme" target="_blank" rel="noreferrer noopener">https://github.com/InternetSociety/wp-chapter-theme</a></p>
+<p>This Wordpress theme allows Internet Society Chapters to display their website in line with our visual identity. The theme uses the <a href="https://www.studiopress.com/themes/genesis/">genesis framework </a>and a custom child theme for Internet Society Chapters <a href="https://github.com/InternetSociety/genesis-child-chapters" target="_blank" rel="noreferrer noopener">https://github.com/InternetSociety/genesis-child-chapters</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><strong>IMPORTANT</strong>: If you encounter issues using this theme or have suggestions, please check the issue tracker and raise a new issue if necessary: <a href="https://github.com/InternetSociety/wp-chapter-theme/issues" target="_blank" rel="noreferrer noopener">https://github.com/InternetSociety/wp-chapter-theme/issues</a></p>
+<p><strong>IMPORTANT</strong>: If you encounter issues using this theme or have suggestions, please check the issue tracker and raise a new issue if necessary: <a href="https://github.com/InternetSociety/genesis-child-chapters/issues" target="_blank" rel="noreferrer noopener">https://github.com/InternetSociety/genesis-child-chapters/issues</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -43,22 +43,26 @@ return <<<CONTENT
 <!-- /wp:separator -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Installation<a href="https://github.com/InternetSociety/wp-chapter-theme/blob/main/README.md#installation"></a></h2>
+<h2 class="wp-block-heading">Installation</h2>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
+<li>Backup your existing site</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
 <li>Download the ZIP file of the <strong>Genesis theme</strong>: <a href="https://www.studiopress.com/get-genesis/" target="_blank" rel="noreferrer noopener">https://www.studiopress.com/get-genesis/</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>Download the ZIP file of the Genesis child theme <strong>Internet Society Chapters</strong>:&nbsp;<a href="https://github.com/InternetSociety/wp-chapter-theme/archive/refs/heads/main.zip">https://github.com/InternetSociety/wp-chapter-theme/archive/refs/heads/main.zip</a></li>
+<li>Download the ZIP file of the Genesis child theme <strong>Internet Society Chapters</strong>:&nbsp;<a href="https://github.com/InternetSociety/wp-chapter-theme/archive/refs/heads/main.zip">https://github.com/InternetSociety/genesis-child-chapters/archive/refs/heads/main.zip</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
 <li>Next, in your WordPress admin area, do the following:<!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li>Go to&nbsp;<em>"Appearance</em>&nbsp;-&gt;&nbsp;<em>"Themes"</em>, choose "Add New" and then choose the "Upload Theme" button,</li>
+<li>Go to&nbsp;<strong>Appearance&nbsp;-&gt;&nbsp;Themes</strong>, choose <strong>Add New</strong> and then choose the <strong>Upload Theme</strong> button,</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -67,6 +71,10 @@ return <<<CONTENT
 
 <!-- wp:list-item -->
 <li>Activate the theme Internet Chapters</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Now under <strong>Genesis -&gt; Child Theme Setup</strong> - click <strong>Install Pack</strong></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></li>
 <!-- /wp:list-item --></ul>
@@ -118,6 +126,74 @@ return <<<CONTENT
 <!-- wp:list-item -->
 <li>Manage your header and footer navigation: Add, remove, or update menu items as needed</li>
 <!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Fix any display issues</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>As with every theme change, display of existing contents and theme configuration may need some custom updates.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Go to&nbsp;<strong>Appearance -&gt;&nbsp;Customize&nbsp;</strong>:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Under<strong>&nbsp;Theme Settings -&gt; Title toggle</strong> you can chose if he page title needs to be kept or removed from the display</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Under Theme Settings -&gt; Header/Footer scripts, you can add any custom scripts as needed (example cookie banner scripts, Google analytics scripts)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Under Additional CSS, you can add your own custom css styles</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>There are many more settings under <strong>Appearance -&gt;&nbsp;Customize&nbsp;</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Best Practice </h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Legal provisions in various countries require certain rules to be respected, for example to make available a <strong>Cookie banner</strong>.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Your site display should be responsive, i.e. display correctly in all different types of devices and screen sizes.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Your site should be accessible: use a tool such as <a href="https://wave.webaim.org/">https://wave.webaim.org</a> to be compliant with <a href="https://www.w3.org/TR/WCAG22/">WCAG22</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Make sure your page loading performance is acceptable:<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Use only strictly necessary plugins. These can be very resource demanding pieces and often not necessary.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Compress and crop images with the best possible quality/weight ratio</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Use a caching mechanism.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Clean the wordpress database sometimes from unneeded rubbish: Spam comments, revisions, obsolete data from old uninstalled plugins, etc.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:group -->
 CONTENT;
