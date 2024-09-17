@@ -883,9 +883,8 @@ THIS CODE NEEDS TO BE OUTPUT WITH THE FILTER get_search_form
 
 add_filter( 'get_search_form', 'pb_custom_search_form', 10, 4 );
 function pb_custom_search_form() {
-
-    $onfocus = "if ('" . esc_js( $search_text ) . "' === this.value) {this.value = '';}";
-    $onblur  = "if ('' === this.value) {this.value = '" . esc_js( $search_text ) . "';}";
+    $onfocus = "if ('" . esc_js( isset($search_text) ? $search_text : '') . "' === this.value) {this.value = '';}";
+    $onblur  = "if ('' === this.value) {this.value = '" . esc_js(  isset($search_text) ? $search_text : '') . "';}";
 
     $value_or_placeholder = ( get_search_query() == '' ) ? 'placeholder' : 'value';
 
@@ -913,7 +912,7 @@ $form  = '
         esc_html( 'Search this website', 'genesis' ),
         esc_attr( $form_id ),
         $value_or_placeholder,
-        esc_attr( $_GET['s'] ?: 'Search by Keyword', 'genesis' ),
+        esc_attr( isset($_GET['s']) ? 'Search by Keyword' : '', 'genesis' ),
         esc_attr( 'Search', 'genesis' )
     );
     $form .= '</div>';
