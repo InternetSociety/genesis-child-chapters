@@ -158,46 +158,6 @@ add_action('genesis_before_content', function(){?>
 
 
 
-
-<?php
-add_action('genesis_before_loop', 'art_change_home_loop');
-
-
-
-function art_change_home_loop() {
-
-
-/** Replace the home loop with our custom **/
-remove_action( 'genesis_loop', 'genesis_do_loop' );
-add_action( 'genesis_loop', 'art_custom_loop' );
-
-/** Custom  loop **/
-function art_custom_loop() {
-
-?>
-
-<?php
-
-/*
-$categories = get_the_category();
-$category_id = $categories[0]->cat_ID;
-*/
-
-global $post;
-$cat_obj = get_queried_object();
-$thiscat_id = $cat_obj->term_id;
-$thiscat = get_category($thiscat_id);
-$parentcat = get_category($thiscat->parent);
-
-    $cat = get_query_var('news');
-    $category = get_category ($thiscat);
-//    echo '<h1>'.$category->cat_name.'</h1>';
-    echo do_shortcode('[ajax_load_more category="'.$category->slug.'" cache="true" cache_id="cache-'.$category->slug.'" posts_per_page="9"]');
-    }
-}
-?>
-
-
 <?php
 add_action('genesis_after_loop', function(){?>
 
