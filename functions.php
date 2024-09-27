@@ -15,7 +15,7 @@ require 'plugin-update-checker/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
-    'https://github.com/InternetSociety/genesis-child-chapters.git',
+    'https://github.com/InternetSociety/genesis-child-chapters',
     //'http://chapter.local/wp-content/themes/genesis-child-chapters-main/plugin-update-checker/examples/theme.json',
     __FILE__,
     'genesis-child-chapters-main'
@@ -29,9 +29,10 @@ $myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 // echo 'coucou2'; print_r($myUpdateChecker);
 
+$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 
-
+// echo 'coucou3'; print_r($myUpdateChecker);
 
 // Starts the engine.
 require_once get_template_directory() . '/lib/init.php';
