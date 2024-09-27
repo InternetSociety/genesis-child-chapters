@@ -10,6 +10,25 @@
  * @link    https://www.studiopress.com/
  */
 
+// https://github.com/YahnisElsts/plugin-update-checker/tree/master
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/InternetSociety/genesis-child-chapters.git',
+    //'http://chapter.local/wp-content/themes/genesis-child-chapters-main/plugin-update-checker/examples/theme.json',
+    __FILE__,
+    'genesis-child-chapters-main'
+);
+
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('main');
+// echo 'coucou1'; print_r($myUpdateChecker);
+
+$myUpdateChecker->getVcsApi()->enableReleaseAssets();
+
+// echo 'coucou2'; print_r($myUpdateChecker);
+
 
 
 

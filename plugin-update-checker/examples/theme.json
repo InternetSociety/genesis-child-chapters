@@ -1,0 +1,7 @@
+{
+ 	"version": "1.0",
+ 	"details_url": "https://github.com/InternetSociety/genesis-child-chapters.git",
+ 	//"download_url": "https://github.com/InternetSociety/genesis-child-chapters/archive/refs/heads/main.zip"
+ 	"download_url": "https://github.com/InternetSociety/genesis-child-chapters/archive/refs/tags/v1.0.zip"
+ 	
+ }
