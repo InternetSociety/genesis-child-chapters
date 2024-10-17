@@ -11,20 +11,19 @@
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-babel-minify": "^0.5.2",
     "gulp-refresh": "^1.1.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
-    "node-sass": "^7.0.1",
     "sass": "^1.53.0",
-    "stylelint": "^14.9.1",
-    "stylelint-config-standard": "^26.0.0",
-    "stylelint-scss": "^4.3.0"
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-scss": "^6.8.0"
   },
   "browserslist": [
     "last 4 version"
