@@ -23,16 +23,11 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
 
 //Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('main');
-// echo 'coucou1'; print_r($myUpdateChecker);
 
 $myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
-// echo 'coucou2'; print_r($myUpdateChecker);
-
 $myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
-
-// echo 'coucou3'; print_r($myUpdateChecker);
 
 // Starts the engine.
 require_once get_template_directory() . '/lib/init.php';
