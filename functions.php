@@ -5,9 +5,9 @@
  * This file adds functions to the Internet Chapters Theme.
  *
  * @package Internet Chapters
- * @author  StudioPress
+ * @author  Henri Wohlfarth
  * @license GPL-2.0-or-later
- * @link    https://www.studiopress.com/
+ * @link    https://www.chapter-template.isoc.org
  */
 
 // https://github.com/YahnisElsts/plugin-update-checker/tree/master
@@ -16,15 +16,14 @@ use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
     'https://github.com/InternetSociety/genesis-child-chapters',
-    //'http://chapter.local/wp-content/themes/genesis-child-chapters-main/plugin-update-checker/examples/theme.json',
+    // 'https://github.com/InternetSociety/genesis-child-chapters/blob/main/plugin-update-checker/examples/',
+    // 'http://chapter.local/wp-content/themes/genesis-child-chapters-main/plugin-update-checker/examples/theme.json',
     __FILE__,
     'genesis-child-chapters-main'
 );
 
 //Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('main');
-
-$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 $myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
