@@ -1,6 +1,6 @@
 # Genesis Sample Theme Changelog
 
-## [3.4.1] - 2021-03-25
+## [1.3] - 2024-10-23
 
 ### Added
 * Implement preconnect for Google Fonts.
