@@ -10,22 +10,6 @@
  * @link    https://www.chapter-template.isoc.org
  */
 
-// https://github.com/YahnisElsts/plugin-update-checker/tree/master
-require 'plugin-update-checker/plugin-update-checker.php';
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
-$myUpdateChecker = PucFactory::buildUpdateChecker(
-    'https://github.com/InternetSociety/genesis-child-chapters',
-    // 'https://github.com/InternetSociety/genesis-child-chapters/blob/main/plugin-update-checker/examples/',
-    // 'http://chapter.local/wp-content/themes/genesis-child-chapters-main/plugin-update-checker/examples/theme.json',
-    __FILE__,
-    'genesis-child-chapters-main'
-);
-
-//Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('main');
-
-$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 
 // Starts the engine.
