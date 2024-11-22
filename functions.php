@@ -11,6 +11,53 @@
  */
 
 
+/*
+Update available notification
+inspired from https://stackoverflow.com/questions/58232315/making-update-notice-functionality-for-my-themes
+*/
+add_filter ( 'site_transient_update_themes', 'theme_check_for_update' );
+
+function theme_check_for_update ( $transient ) {
+    $response = theme_fetch_repo_latest_version();
+    $data = json_decode($response);
+    if ( version_compare( $transient->checked['genesis-child-chapters-main'], $data->new_version, '<' ) ) {
+        $transient->response['genesis-child-chapters-main'] = (array) $data;
+    }
+    return $transient;
+}
+
+
+function theme_fetch_repo_latest_version() {
+    $url = "https://api.github.com/repos/InternetSociety/genesis-child-chapters/releases/latest";
+    $headers = array(
+        'Content-Type: application/json',
+        'X-GitHub-Api-Version: 2022-11-28',
+        'User-Agent: Awesome-Octocat-App'
+        );
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    $arr = json_decode($result,true);
+    $version = substr($arr['name'], 1);
+    $HTTP_HOST = $_SERVER['HTTP_HOST'];
+    $response = '
+    {
+        "new_version": '.$version.',
+        "url": "https://github.com/InternetSociety/genesis-child-chapters/blob/main/CHANGELOG.txtt",
+        "package": "https://github.com/InternetSociety/genesis-child-chapters/archive/refs/heads/main.zip"
+    }
+    ';
+
+
+    return $response;
+}
+
+
 
 // Starts the engine.
 require_once get_template_directory() . '/lib/init.php';
@@ -26,7 +73,7 @@ add_action( 'after_setup_theme', 'genesis_child_chapters_localization_setup' );
  */
 function genesis_child_chapters_localization_setup() {
 
-	load_child_theme_textdomain( genesis_get_theme_handle(), get_stylesheet_directory() . '/languages' );
+    load_child_theme_textdomain( genesis_get_theme_handle(), get_stylesheet_directory() . '/languages' );
 
 }
 
@@ -55,12 +102,12 @@ add_action( 'after_setup_theme', 'genesis_child_gutenberg_support' );
  * @since 2.7.0
  */
 function genesis_child_gutenberg_support() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- using same in all child themes to allow action to be unhooked.
-	require_once get_stylesheet_directory() . '/lib/gutenberg/init.php';
+    require_once get_stylesheet_directory() . '/lib/gutenberg/init.php';
 }
 
 // Registers the responsive menus.
 if ( function_exists( 'genesis_register_responsive_menus' ) ) {
-	genesis_register_responsive_menus( genesis_get_config( 'responsive-menus' ) );
+    genesis_register_responsive_menus( genesis_get_config( 'responsive-menus' ) );
 }
 
 add_action( 'wp_enqueue_scripts', 'genesis_child_chapters_enqueue_scripts_styles' );
@@ -71,57 +118,57 @@ add_action( 'wp_enqueue_scripts', 'genesis_child_chapters_enqueue_scripts_styles
  */
 function genesis_child_chapters_enqueue_scripts_styles() {
 
-	$appearance = genesis_get_config( 'appearance' );
+    $appearance = genesis_get_config( 'appearance' );
 
-	wp_enqueue_style( // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- see https://core.trac.wordpress.org/ticket/49742
-		genesis_get_theme_handle() . '-fonts',
-		$appearance['fonts-url'],
-		[],
-		null
-	);
+    wp_enqueue_style( // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- see https://core.trac.wordpress.org/ticket/49742
+        genesis_get_theme_handle() . '-fonts',
+        $appearance['fonts-url'],
+        [],
+        null
+    );
 
-	wp_enqueue_style( 'dashicons' );
+    wp_enqueue_style( 'dashicons' );
 
-	if ( genesis_is_amp() ) {
-		wp_enqueue_style(
-			genesis_get_theme_handle() . '-amp',
-			get_stylesheet_directory_uri() . '/lib/amp/amp.css',
-			[ genesis_get_theme_handle() ],
-			genesis_get_theme_version()
-		);
-	}
-
-
-	wp_register_script('faws', 'https://kit.fontawesome.com/e775d963c7.js');
-	wp_enqueue_script(array('jquery','faws'));
+    if ( genesis_is_amp() ) {
+        wp_enqueue_style(
+            genesis_get_theme_handle() . '-amp',
+            get_stylesheet_directory_uri() . '/lib/amp/amp.css',
+            [ genesis_get_theme_handle() ],
+            genesis_get_theme_version()
+        );
+    }
 
 
-	wp_register_script('art_gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js');
-	wp_enqueue_script(array('jquery','art_gsap'));
+    wp_register_script('faws', 'https://kit.fontawesome.com/e775d963c7.js');
+    wp_enqueue_script(array('jquery','faws'));
 
 
-	wp_register_script('art_gsap_st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js');
-	wp_enqueue_script(array('jquery','art_gsap_st'));
+    wp_register_script('art_gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js');
+    wp_enqueue_script(array('jquery','art_gsap'));
 
 
-	wp_register_script('anim-init', get_stylesheet_directory_uri() . '/js-build/anim-init.min.js', array('jquery'), filemtime(get_theme_file_path('/js-build/anim-init.min.js')), true);
-	wp_localize_script( 'anim-init', 'commonAvdata', array(
-		'themeUrl' => get_stylesheet_directory_uri()
-	));
-	wp_enqueue_script( 'anim-init', array(), false, true);
+    wp_register_script('art_gsap_st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js');
+    wp_enqueue_script(array('jquery','art_gsap_st'));
 
 
-	wp_register_script('common-js', get_stylesheet_directory_uri() . '/js-build/common.min.js', array('jquery'), filemtime(get_theme_file_path('/js-build/common.min.js')), true);
-	wp_localize_script( 'common-js', 'commonAvdata', array(
-		'themeUrl' => get_stylesheet_directory_uri()
-	));
-	wp_enqueue_script( 'common-js', array(), false, true);
+    wp_register_script('anim-init', get_stylesheet_directory_uri() . '/js-build/anim-init.min.js', array('jquery'), filemtime(get_theme_file_path('/js-build/anim-init.min.js')), true);
+    wp_localize_script( 'anim-init', 'commonAvdata', array(
+        'themeUrl' => get_stylesheet_directory_uri()
+    ));
+    wp_enqueue_script( 'anim-init', array(), false, true);
 
-	wp_register_script('mobile-menu-js', get_stylesheet_directory_uri() . '/js-build/mobile-menu.min.js', array('jquery'), filemtime(get_theme_file_path('/js-build/mobile-menu.min.js')), true);
-	wp_localize_script( 'mobile-menu-js', 'commonAvdata', array(
-		'themeUrl' => get_stylesheet_directory_uri()
-	));
-	wp_enqueue_script( 'mobile-menu-js', array(), false, true);
+
+    wp_register_script('common-js', get_stylesheet_directory_uri() . '/js-build/common.min.js', array('jquery'), filemtime(get_theme_file_path('/js-build/common.min.js')), true);
+    wp_localize_script( 'common-js', 'commonAvdata', array(
+        'themeUrl' => get_stylesheet_directory_uri()
+    ));
+    wp_enqueue_script( 'common-js', array(), false, true);
+
+    wp_register_script('mobile-menu-js', get_stylesheet_directory_uri() . '/js-build/mobile-menu.min.js', array('jquery'), filemtime(get_theme_file_path('/js-build/mobile-menu.min.js')), true);
+    wp_localize_script( 'mobile-menu-js', 'commonAvdata', array(
+        'themeUrl' => get_stylesheet_directory_uri()
+    ));
+    wp_enqueue_script( 'mobile-menu-js', array(), false, true);
 
 
 }
@@ -137,11 +184,11 @@ add_filter( 'body_class', 'genesis_child_chapters_body_classes' );
  */
 function genesis_child_chapters_body_classes( $classes ) {
 
-	if ( ! genesis_is_amp() ) {
-		// Add 'no-js' class to the body class values.
-		$classes[] = 'no-js';
-	}
-	return $classes;
+    if ( ! genesis_is_amp() ) {
+        // Add 'no-js' class to the body class values.
+        $classes[] = 'no-js';
+    }
+    return $classes;
 }
 
 add_action( 'genesis_before', 'genesis_child_chapters_js_nojs_script', 1 );
@@ -152,21 +199,21 @@ add_action( 'genesis_before', 'genesis_child_chapters_js_nojs_script', 1 );
  */
 function genesis_child_chapters_js_nojs_script() {
 
-	if ( genesis_is_amp() ) {
-		return;
-	}
+    if ( genesis_is_amp() ) {
+        return;
+    }
 
-	?>
-	<script>
-	//<![CDATA[
-	(function(){
-		var c = document.body.classList;
-		c.remove( 'no-js' );
-		c.add( 'js' );
-	})();
-	//]]>
-	</script>
-	<?php
+    ?>
+    <script>
+    //<![CDATA[
+    (function(){
+        var c = document.body.classList;
+        c.remove( 'no-js' );
+        c.add( 'js' );
+    })();
+    //]]>
+    </script>
+    <?php
 }
 
 add_filter( 'wp_resource_hints', 'genesis_child_chapters_resource_hints', 10, 2 );
@@ -181,14 +228,14 @@ add_filter( 'wp_resource_hints', 'genesis_child_chapters_resource_hints', 10, 2 
  */
 function genesis_child_chapters_resource_hints( $urls, $relation_type ) {
 
-	if ( wp_style_is( genesis_get_theme_handle() . '-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
-		$urls[] = [
-			'href' => 'https://fonts.gstatic.com',
-			'crossorigin',
-		];
-	}
+    if ( wp_style_is( genesis_get_theme_handle() . '-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+        $urls[] = [
+            'href' => 'https://fonts.gstatic.com',
+            'crossorigin',
+        ];
+    }
 
-	return $urls;
+    return $urls;
 }
 
 add_action( 'after_setup_theme', 'genesis_child_chapters_theme_support', 9 );
@@ -201,11 +248,11 @@ add_action( 'after_setup_theme', 'genesis_child_chapters_theme_support', 9 );
  */
 function genesis_child_chapters_theme_support() {
 
-	$theme_supports = genesis_get_config( 'theme-supports' );
+    $theme_supports = genesis_get_config( 'theme-supports' );
 
-	foreach ( $theme_supports as $feature => $args ) {
-		add_theme_support( $feature, $args );
-	}
+    foreach ( $theme_supports as $feature => $args ) {
+        add_theme_support( $feature, $args );
+    }
 
 }
 
@@ -219,11 +266,11 @@ add_action( 'after_setup_theme', 'genesis_child_chapters_post_type_support', 9 )
  */
 function genesis_child_chapters_post_type_support() {
 
-	$post_type_supports = genesis_get_config( 'post-type-supports' );
+    $post_type_supports = genesis_get_config( 'post-type-supports' );
 
-	foreach ( $post_type_supports as $post_type => $args ) {
-		add_post_type_support( $post_type, $args );
-	}
+    foreach ( $post_type_supports as $post_type => $args ) {
+        add_post_type_support( $post_type, $args );
+    }
 
 }
 
@@ -265,11 +312,11 @@ add_filter( 'wp_nav_menu_args', 'genesis_child_chapters_secondary_menu_args' );
  */
 function genesis_child_chapters_secondary_menu_args( $args ) {
 
-	if ( 'secondary' === $args['theme_location'] ) {
-		$args['depth'] = 1;
-	}
+    if ( 'secondary' === $args['theme_location'] ) {
+        $args['depth'] = 1;
+    }
 
-	return $args;
+    return $args;
 
 }
 
@@ -284,7 +331,7 @@ add_filter( 'genesis_author_box_gravatar_size', 'genesis_child_chapters_author_b
  */
 function genesis_child_chapters_author_box_gravatar( $size ) {
 
-	return 90;
+    return 90;
 
 }
 
@@ -299,8 +346,8 @@ add_filter( 'genesis_comment_list_args', 'genesis_child_chapters_comments_gravat
  */
 function genesis_child_chapters_comments_gravatar( $args ) {
 
-	$args['avatar_size'] = 60;
-	return $args;
+    $args['avatar_size'] = 60;
+    return $args;
 
 }
 
@@ -432,9 +479,9 @@ function genesis_child_chapters_genesis_before_footer() {
 
 genesis_register_sidebar( array(
     'name'=>'Before Header Widget Area',
-    'id'			=> 'before-header-widget',
-    'name'			=> __( 'Before Header Widget Area', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is before header widget section.', 'genesis-child-chapters' ),
+    'id'            => 'before-header-widget',
+    'name'          => __( 'Before Header Widget Area', 'genesis-child-chapters' ),
+    'description'   => __( 'This is before header widget section.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'=>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -442,9 +489,9 @@ genesis_register_sidebar( array(
 
 genesis_register_sidebar( array(
     'name'=>'Header Widget Area',
-    'id'			=> 'header-widget-top',
-    'name'			=> __( 'Header Widget Area', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is header widget section.', 'genesis-child-chapters' ),
+    'id'            => 'header-widget-top',
+    'name'          => __( 'Header Widget Area', 'genesis-child-chapters' ),
+    'description'   => __( 'This is header widget section.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="top-header widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'=>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -452,9 +499,9 @@ genesis_register_sidebar( array(
 
 genesis_register_sidebar( array(
     'name'=>'Category Header Widget Area',
-    'id'			=> 'category-header-widget-top',
-    'name'			=> __( 'Category Header Widget Area', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is category header widget section.', 'genesis-child-chapters' ),
+    'id'            => 'category-header-widget-top',
+    'name'          => __( 'Category Header Widget Area', 'genesis-child-chapters' ),
+    'description'   => __( 'This is category header widget section.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="top-header widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'=>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -462,9 +509,9 @@ genesis_register_sidebar( array(
 
 genesis_register_sidebar( array(
     'name'=>'After Header Widget Area',
-    'id'			=> 'after-header-widget',
-    'name'			=> __( 'After Header Widget Area', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is after header widget section.', 'genesis-child-chapters' ),
+    'id'            => 'after-header-widget',
+    'name'          => __( 'After Header Widget Area', 'genesis-child-chapters' ),
+    'description'   => __( 'This is after header widget section.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'=>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -472,9 +519,9 @@ genesis_register_sidebar( array(
 
 genesis_register_sidebar( array(
     'name'=>'Blog Header Widget Area',
-    'id'			=> 'blog-header-widget',
-    'name'			=> __( 'Blog Header Widget Area', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is blog header widget section.', 'genesis-child-chapters' ),
+    'id'            => 'blog-header-widget',
+    'name'          => __( 'Blog Header Widget Area', 'genesis-child-chapters' ),
+    'description'   => __( 'This is blog header widget section.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'=>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -482,9 +529,9 @@ genesis_register_sidebar( array(
 
 genesis_register_sidebar( array(
     'name'=>'Before Footer Widget',
-    'id'			=> 'before-footer',
-    'name'			=> __( 'Before Footer Widget', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is before footer widget section.', 'genesis-child-chapters' ),
+    'id'            => 'before-footer',
+    'name'          => __( 'Before Footer Widget', 'genesis-child-chapters' ),
+    'description'   => __( 'This is before footer widget section.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'  =>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -492,18 +539,18 @@ genesis_register_sidebar( array(
 
 genesis_register_sidebar( array(
     'name'=>'Related Announcement Title Widget',
-    'id'			=> 'related-announcement-title',
-    'name'			=> __( 'Related Announcement Title Widget', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is Related Announcement Title.', 'genesis-child-chapters' ),
+    'id'            => 'related-announcement-title',
+    'name'          => __( 'Related Announcement Title Widget', 'genesis-child-chapters' ),
+    'description'   => __( 'This is Related Announcement Title.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'  =>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
 
 genesis_register_sidebar( array(
     'name'=>'Related Posts Title Widget',
-    'id'			=> 'related-post-title',
-    'name'			=> __( 'Related Posts Title Widget', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is Related Posts Title.', 'genesis-child-chapters' ),
+    'id'            => 'related-post-title',
+    'name'          => __( 'Related Posts Title Widget', 'genesis-child-chapters' ),
+    'description'   => __( 'This is Related Posts Title.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'  =>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -511,9 +558,9 @@ genesis_register_sidebar( array(
 
 genesis_register_sidebar( array(
     'name'=>'Category Media Footer Widget',
-    'id'			=> 'category-media-footer',
-    'name'			=> __( 'Category Media Footer Widget', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is Category Media Footer widget section.', 'genesis-child-chapters' ),
+    'id'            => 'category-media-footer',
+    'name'          => __( 'Category Media Footer Widget', 'genesis-child-chapters' ),
+    'description'   => __( 'This is Category Media Footer widget section.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'  =>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -521,9 +568,9 @@ genesis_register_sidebar( array(
 
 genesis_register_sidebar( array(
     'name'=>'Footer Copyright Widget',
-    'id'			=> 'footer-copyright',
-    'name'			=> __( 'Footer Copyright Widget', 'genesis-child-chapters' ),
-    'description'	=> __( 'This is the footer copyright widget section.', 'genesis-child-chapters' ),
+    'id'            => 'footer-copyright',
+    'name'          => __( 'Footer Copyright Widget', 'genesis-child-chapters' ),
+    'description'   => __( 'This is the footer copyright widget section.', 'genesis-child-chapters' ),
     'before_widget' => '<div id="%1$s" class="widget-area %2$s">', 'after_widget'  => '</div>',
     'before_title'=>'<h4 class="widgettitle">','after_title'=>'</h4>'
 ) );
@@ -650,7 +697,7 @@ function av_ln_shortcode($atts){
     $list = '<div class="latest-posts">';
     while(have_posts()) : the_post();
 
-		$post_ID = (empty($post->ID)) ? '' : $post->ID;
+        $post_ID = (empty($post->ID)) ? '' : $post->ID;
         $featured_img_url = get_the_post_thumbnail_url($post_ID, 'full');
   
         $list .= '
