@@ -48,7 +48,7 @@ function theme_fetch_repo_latest_version() {
     $response = '
     {
         "new_version": '.$version.',
-        "url": "https://github.com/InternetSociety/genesis-child-chapters/blob/main/CHANGELOG.txtt",
+        "url": "https://github.com/InternetSociety/genesis-child-chapters/blob/main/CHANGELOG.txt",
         "package": "https://github.com/InternetSociety/genesis-child-chapters/archive/refs/heads/main.zip"
     }
     ';
