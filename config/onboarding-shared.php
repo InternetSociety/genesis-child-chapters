@@ -42,7 +42,7 @@ return [
                 '_genesis_hide_singular_image' => true,
             ],
         ],
-        'installation'   => [
+        'best-practices'   => [
             'post_title'     => 'WordPress Basics and Other Website Tips',
             'post_content'   => require dirname( __FILE__ ) . '/import/content/best-practices.php',
             'post_type'      => 'page',
