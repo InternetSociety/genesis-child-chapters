@@ -81,7 +81,6 @@ function theme_fetch_repo_latest_version() {
     curl_close($ch);
     $arr = json_decode($result,true);
     $version = substr($arr['name'], 1);
-    $HTTP_HOST = $_SERVER['HTTP_HOST'];
     $response = '
     {
         "new_version": '.$version.',
