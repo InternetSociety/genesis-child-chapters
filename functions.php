@@ -14,7 +14,10 @@
 /*
 Update available notification
 inspired from https://stackoverflow.com/questions/58232315/making-update-notice-functionality-for-my-themes
-*/
+
+This provokes an error:
+[Wed Apr 23 07:34:17.153081 2025] [php:error] [pid 9032] [client 86.111.138.250:8269] PHP Fatal error:  Uncaught Error: Attempt to modify property "response" on bool in /var/www/html/wp-content/themes/genesis-child-chapters-main/functions.php:24\nStack trace:\n#0 /var/www/html/wp-includes/class-wp-hook.php(326): theme_check_for_update()\n#1 /var/www/html/wp-includes/plugin.php(205): WP_Hook->apply_filters()\n#2 /var/www/html/wp-includes/option.php(2578): apply_filters()\n#3 /var/www/html/wp-includes/update.php(912): get_site_transient()\n#4 /var/www/html/wp-admin/menu.php(33): wp_get_update_data()\n#5 /var/www/html/wp-admin/admin.php(158): require('...')\n#6 /var/www/html/wp-admin/plugins.php(10): require_once('...')\n#7 {main}\n  thrown in /var/www/html/wp-content/themes/genesis-child-chapters-main/functions.php on line 24
+
 add_filter ( 'site_transient_update_themes', 'theme_check_for_update' );
 
 function theme_check_for_update ( $transient ) {
@@ -25,6 +28,40 @@ function theme_check_for_update ( $transient ) {
     }
     return $transient;
 }
+*/
+
+/*
+Update available notification
+inspired from https://stackoverflow.com/questions/58232315/making-update-notice-functionality-for-my-themes
+1. Check if $transient is an object. If not, initialize it as a stdClass.
+2. Check that $transient->checked['genesis-child-chapters-main'] and $data->new_version are set before comparing versions.
+3. This avoids the fatal error by never accessing properties on a boolean.
+*/
+add_filter('site_transient_update_themes', 'theme_check_for_update');
+
+function theme_check_for_update($transient) {
+    // Bail early if the transient is not an object
+    if (!is_object($transient)) {
+        $transient = new stdClass();
+    }
+
+    $response = theme_fetch_repo_latest_version();
+    $data = json_decode($response);
+
+    // Make sure we have a valid response and checked property
+    if (
+        isset($transient->checked['genesis-child-chapters-main']) &&
+        isset($data->new_version) &&
+        version_compare($transient->checked['genesis-child-chapters-main'], $data->new_version, '<')
+    ) {
+        $transient->response['genesis-child-chapters-main'] = (array) $data;
+    }
+
+    return $transient;
+}
+
+
+
 
 
 function theme_fetch_repo_latest_version() {
