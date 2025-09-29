@@ -23,7 +23,7 @@ return [
 			'demo_url'    => 'https://demo.studiopress.com/genesis-child-chapters/home-color/',
 			'config'      => [
 				'dependencies'     => [
-					'plugins' => isset($genesis_child_chapters_shared_content['plugins']) ? $genesis_child_chapters_shared_content['plugins'] : '',
+					'plugins' => isset($genesis_child_chapters_shared_content['plugins']) ? $genesis_child_chapters_shared_content['plugins'] : [],
 				],
 				
 				'content'          => array_merge(
@@ -47,7 +47,7 @@ return [
 				),
 				
 				//'navigation_menus' => $genesis_child_chapters_shared_content['navigation_menus'],
-				'navigation_menus' => isset($genesis_child_chapters_shared_content['navigation_menus']) ? $genesis_child_chapters_shared_content['navigation_menus'] : '',
+				'navigation_menus' => isset($genesis_child_chapters_shared_content['navigation_menus']) ? $genesis_child_chapters_shared_content['navigation_menus'] : [],
 				'widgets'          => $genesis_child_chapters_shared_content['widgets'],
 			],
 		],
