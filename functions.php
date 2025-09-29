@@ -63,14 +63,14 @@ function theme_check_for_update($transient) {
 
 
 
-
 function theme_fetch_repo_latest_version() {
     $url = "https://api.github.com/repos/InternetSociety/genesis-child-chapters/releases/latest";
     $headers = array(
         'Content-Type: application/json',
         'X-GitHub-Api-Version: 2022-11-28',
         'User-Agent: Awesome-Octocat-App'
-        );
+    );
+
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -79,16 +79,24 @@ function theme_fetch_repo_latest_version() {
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     $result = curl_exec($ch);
     curl_close($ch);
-    $arr = json_decode($result,true);
-    $version = substr($arr['name'], 1);
-    $response = '
-    {
-        "new_version": '.$version.',
-        "url": "https://github.com/InternetSociety/genesis-child-chapters/blob/main/CHANGELOG.txt",
-        "package": "https://github.com/InternetSociety/genesis-child-chapters/archive/refs/heads/main.zip"
-    }
-    ';
 
+    $arr = json_decode($result, true);
+
+    // Use tag_name (preferred) or fallback to name
+    if (isset($arr['tag_name'])) {
+        $version = ltrim($arr['tag_name'], 'v');
+    } elseif (isset($arr['name'])) {
+        $version = ltrim($arr['name'], 'v');
+    } else {
+        // fallback: unknown version
+        $version = '0.0.0';
+    }
+
+    $response = json_encode(array(
+        "new_version" => $version,
+        "url"         => "https://github.com/InternetSociety/genesis-child-chapters/blob/main/CHANGELOG.txt",
+        "package"     => "https://github.com/InternetSociety/genesis-child-chapters/archive/refs/heads/main.zip"
+    ));
 
     return $response;
 }
